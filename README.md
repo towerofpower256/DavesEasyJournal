@@ -4,5 +4,6 @@
 ![Screenshot](doc/DavesEaseJournal%20v0.1%20main%20form.png?raw=true "Title")
 
 # Requirements
-Microsoft Windows
-.Net Framework v4.0
+ Microsoft Windows
+ 
+ .Net Framework v4.0
