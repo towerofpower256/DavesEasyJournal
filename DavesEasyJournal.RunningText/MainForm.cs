@@ -19,11 +19,30 @@ namespace DavesEasyJournal.RunningText
 
         bool _unsavedChanges = false;
         string _currentJournalFilename = string.Empty;
+        string _originalFormTitle = String.Empty;
 
         public MainForm()
         {
             InitializeComponent();
+
+            // Remember the original form title
+            _originalFormTitle = this.Text;
         }
+
+        #region General functions
+
+        void SetJournalFileName(string filename)
+        {
+            // Update the form's title
+            if (string.IsNullOrEmpty(filename))
+                this.Text = _originalFormTitle;
+            else
+                this.Text = $"{_originalFormTitle} - {Path.GetFileName(filename)}";
+
+            _currentJournalFilename = filename;
+        }
+
+        #endregion
 
         #region Form update functions
 
@@ -33,7 +52,7 @@ namespace DavesEasyJournal.RunningText
 
             txtJournalContent.Clear();
             _unsavedChanges = false;
-            _currentJournalFilename = string.Empty;
+            SetJournalFileName(string.Empty);
         }
 
         void AddEntry()
@@ -92,7 +111,7 @@ namespace DavesEasyJournal.RunningText
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                _currentJournalFilename = sfd.FileName;
+                SetJournalFileName(sfd.FileName);
             }
         }
 
@@ -118,8 +137,11 @@ namespace DavesEasyJournal.RunningText
                 }
 
                 var fileContent = File.ReadAllText(ofd.FileName);
-
                 txtJournalContent.Text = fileContent;
+                txtJournalContent.Select(txtJournalContent.Text.Length, txtJournalContent.Text.Length);
+                txtJournalContent.ScrollToCaret();
+                txtJournalInput.Focus();
+                SetJournalFileName(ofd.FileName);
             }
         }
 
@@ -173,6 +195,11 @@ namespace DavesEasyJournal.RunningText
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             CheckUnsavedChanges();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenJournalFileDialog();
         }
     }
 }

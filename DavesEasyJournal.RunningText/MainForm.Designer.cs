@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtJournalInput = new System.Windows.Forms.TextBox();
+            this.btnAddEntry = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtJournalContent = new System.Windows.Forms.TextBox();
-            this.btnAddEntry = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.txtJournalInput = new System.Windows.Forms.TextBox();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -60,9 +61,30 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(541, 106);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // txtJournalInput
+            // 
+            this.txtJournalInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtJournalInput.Location = new System.Drawing.Point(3, 3);
+            this.txtJournalInput.Multiline = true;
+            this.txtJournalInput.Name = "txtJournalInput";
+            this.txtJournalInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtJournalInput.Size = new System.Drawing.Size(465, 100);
+            this.txtJournalInput.TabIndex = 1;
+            // 
+            // btnAddEntry
+            // 
+            this.btnAddEntry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddEntry.Location = new System.Drawing.Point(474, 3);
+            this.btnAddEntry.Name = "btnAddEntry";
+            this.btnAddEntry.Size = new System.Drawing.Size(64, 100);
+            this.btnAddEntry.TabIndex = 2;
+            this.btnAddEntry.Text = "Add entry";
+            this.btnAddEntry.UseVisualStyleBackColor = true;
+            this.btnAddEntry.Click += new System.EventHandler(this.btnAddEntry_Click);
             // 
             // menuStrip1
             // 
@@ -78,6 +100,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
+            this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.toolStripSeparator1,
@@ -86,17 +109,12 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
-            // exitToolStripMenuItem
+            // newToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -112,12 +130,17 @@
             this.saveAsToolStripMenuItem.Text = "Save as...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
-            // newToolStripMenuItem
+            // toolStripSeparator1
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // txtJournalContent
             // 
@@ -130,17 +153,6 @@
             this.txtJournalContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtJournalContent.Size = new System.Drawing.Size(541, 197);
             this.txtJournalContent.TabIndex = 0;
-            // 
-            // btnAddEntry
-            // 
-            this.btnAddEntry.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddEntry.Location = new System.Drawing.Point(474, 3);
-            this.btnAddEntry.Name = "btnAddEntry";
-            this.btnAddEntry.Size = new System.Drawing.Size(64, 100);
-            this.btnAddEntry.TabIndex = 2;
-            this.btnAddEntry.Text = "Add entry";
-            this.btnAddEntry.UseVisualStyleBackColor = true;
-            this.btnAddEntry.Click += new System.EventHandler(this.btnAddEntry_Click);
             // 
             // splitContainer1
             // 
@@ -162,15 +174,12 @@
             this.splitContainer1.SplitterDistance = 197;
             this.splitContainer1.TabIndex = 2;
             // 
-            // txtJournalInput
+            // openToolStripMenuItem
             // 
-            this.txtJournalInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtJournalInput.Location = new System.Drawing.Point(3, 3);
-            this.txtJournalInput.Multiline = true;
-            this.txtJournalInput.Name = "txtJournalInput";
-            this.txtJournalInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtJournalInput.Size = new System.Drawing.Size(465, 100);
-            this.txtJournalInput.TabIndex = 1;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "Open...";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -214,6 +223,7 @@
         private System.Windows.Forms.Button btnAddEntry;
         private System.Windows.Forms.TextBox txtJournalInput;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
     }
 }
 
